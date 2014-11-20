@@ -11,7 +11,7 @@ If you want syntax highlighing, install the python package pygments: http://pygm
 Sample usage:
 =============
 
-### In this example we're monkeypaching String to add a to_prety_sql method.
+In this example we're monkeypaching String to add a to_prety_sql method.
 
     require 'pretty_sql'
 
