@@ -8,6 +8,11 @@ Note
 
 If you want syntax highlighing, install the python package pygments: http://pygments.org/docs/cmdline/ and ensure that it's in your PATH.
 
+Warning!
+========
+
+This was not intended for anything other than debugging. It is likely INSECURE to use this for any other purpose.
+
 Sample usage:
 =============
 
