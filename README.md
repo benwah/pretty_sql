@@ -25,7 +25,7 @@ In this example we're monkeypaching String to add a to_prety_sql method.
       include PrettySql
 
       def to_pretty_sql
-        prettify_sql(self.dup)
+        PrettySql.prettify_sql(self.dup)
       end
     end
 

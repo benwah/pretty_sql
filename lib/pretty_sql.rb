@@ -4,13 +4,15 @@ require 'anbt-sql-formatter/formatter'
 module PrettySql
   PYGMENTIZE_EXEC_NAME = 'pygmentize'
 
-  def prettify_sql(sql)
-    pygmentize_sql(tidy_sql(sql))
+  def self.prettify_sql(sql)
+    self.pygmentize_sql(self.tidy_sql(sql))
   end
 
-  def pygmentize_sql(sql)
+  def self.pygmentize_sql(sql)
     # Colorize SQL by piping to pygmentize if it exists.
     
+    pygmentize_path = self.get_pygmentize_executable
+
     return sql unless pygmentize_path
 
     IO.popen("#{pygmentize_path} -l sql", 'r+') do |process|
@@ -20,7 +22,7 @@ module PrettySql
     end
   end
 
-  def tidy_sql(sql)
+  def self.tidy_sql(sql)
     # Auto-indent SQL
 
     rule = AnbtSql::Rule.new
@@ -35,11 +37,7 @@ module PrettySql
 
 private
 
-  def pygmentize_path
-    @pygmentize_path ||= get_pygmentize_executable
-  end
-
-  def get_pygmentize_executable
+  def self.get_pygmentize_executable
     # Find executable for pygmentize
     
     return ENV['PYGMENTIZE_PATH'] if ENV['PYGMENTIZE_PATH'] 

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'pretty_sql'
-  s.version     = '0.0.1'
+  s.version     = '0.1.0'
   s.date        = '2014-11-19'
   s.summary     = 'Indents and colorizes SQL'
   s.description = 'Uses pygmentize and anbt-sql-formatter to auto-indent and colorize SQL'
